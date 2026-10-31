@@ -3,15 +3,12 @@ import crypto from "node:crypto";
 
 const app = express();
 
-const {
-  CLIENT_ID,
-  CLIENT_SECRET,
-  BOT_TOKEN,
-  GUILD_ID,
-  ROLE_ID,
-  CALLBACK_URL
-} = Deno.env.toObject();
-
+const CLIENT_ID = Deno.env.get("CLIENT_ID");
+const CLIENT_SECRET = Deno.env.get("CLIENT_SECRET");
+const BOT_TOKEN = Deno.env.get("BOT_TOKEN");
+const GUILD_ID = Deno.env.get("GUILD_ID");
+const ROLE_ID = Deno.env.get("ROLE_ID");
+const CALLBACK_URL = Deno.env.get("CALLBACK_URL");
 const states = new Map();
 
 app.get("/", (req, res) => {
